@@ -1,7 +1,11 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent any
+    agent {
+      node {
+        label 'Slave 1'
+      }
+    }    
 
     environment {
         ENV_JOB_NAME = 'tomcat-apache'
