@@ -32,8 +32,6 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no afour@192.168.16.200'
                     sh 'ssh -v afour@192.168.16.200'
                     sh '''
-                        mkdir -p /site/
-                        chown -r afour:afo /site
                         copy . /site/
                         java -jar target/dependency/webapp-runner.jar target/*.war
                     ''' 
