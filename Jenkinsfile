@@ -1,5 +1,7 @@
+#!/usr/bin/env groovy
+
 pipeline {
-    agent slave1
+    agent any
 
     environment {
         MAVEN_HOME = tool name: 'maven-3.3.9', type: 'maven'
@@ -7,32 +9,28 @@ pipeline {
     }
 
     stages {
-
         stage('Add Maven') {
             steps {
                 sh "export PATH=\$PATH:${MAVEN_HOME}/bin"
             }
         }
-
         stage('Build') {
             steps {
-                sh '''
-                    mvn clean package
-                '''
+                echo 'Building..'
+                sh "mvn clean package"
+                
             }
         }
-
         stage('Test') {
             steps {
-                echo 'Testing.....'
+                echo 'Testing..'
             }
         }
-
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                echo 'Deploying....'
+                sh(script: 'java -jar target/dependency/webapp-runner.jar target/*.war')
+            }
         }
-
     }
-
 }
