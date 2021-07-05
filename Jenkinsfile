@@ -27,8 +27,19 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh(script: 'java -jar target/dependency/webapp-runner.jar target/*.war')
+                //sh(script: 'java -jar target/dependency/webapp-runner.jar target/*.war')
+                sshagent(['jenkins-master-slave-private-key']) {
+                    sh 'ssh -o StrictHostKeyChecking=no afour@192.168.16.200'
+                    sh 'ssh -v afour@192.168.16.200'
+                    sh '''
+                        mkdir -p /site/
+                        chown -r afour:afo /site
+                        copy . /site/
+                        java -jar target/dependency/webapp-runner.jar target/*.war
+                    ''' 
+                }
             }
         }
+        
     }
 }
