@@ -32,7 +32,10 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no afour@192.168.16.200'
                     sh 'ssh -v afour@192.168.16.200'
                     sh '''
-                        ./entrypoint.sh
+                        sudo cp tomcat-apache.service /etc/systemd/system/
+                        sudo systemctl daemon-reload
+                        sudo systemctl enable tomcat.service
+                        sudo systemctl start tomcat.service
                     ''' 
                 }
             }
