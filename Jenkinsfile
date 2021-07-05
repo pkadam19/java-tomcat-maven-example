@@ -32,7 +32,7 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no afour@192.168.16.200'
                     sh 'ssh -v afour@192.168.16.200'
                     sh '''
-                        cp -r . /site
+                        cp -r . /site/
                         ./entrypoint.sh
                     ''' 
                 }
