@@ -2,4 +2,4 @@
 
 cd  /site/
 
-/usr/bin/java -jar /site/target/dependency/webapp-runner.jar /site/target/*.war
+/usr/bin/java -jar target/dependency/webapp-runner.jar target/*.war
