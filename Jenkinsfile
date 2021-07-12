@@ -29,8 +29,9 @@ pipeline {
                 echo 'Deploying....'
                 //sh(script: 'java -jar target/dependency/webapp-runner.jar target/*.war')
                // sshagent(['jenkins-master-slave-private-key']) {
+                sh "whoami"
                 sshagent(['abc70e48-8661-4fc6-9516-4780934dc053']) {
-                    sh 'ssh -o StrictHostKeyChecking=no afour@192.168.16.155'
+                    sh 'ssh -tt -o StrictHostKeyChecking=no afour@192.168.16.155'
                     sh 'ssh -v afour@192.168.16.155'
                     sh '''
                         cp -r . /site/
