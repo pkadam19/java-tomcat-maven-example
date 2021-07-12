@@ -34,7 +34,7 @@ pipeline {
                         // sudo cp -r . /site
                         // java -jar /site/target/dependency/webapp-runner.jar /site/target/*.war
                     sshagent(['7580eb8c-f351-4f30-bb88-75ef4749414b']) {
-                    sh 'ssh -tt -o StrictHostKeyChecking=no afour@192.168.16.217'
+                    sh 'ssh -tt -o PubkeyAuthentication=no afour@192.168.16.217'
                     sh 'ssh -v afour@192.168.16.217'
                     sh '''
                         whoami
