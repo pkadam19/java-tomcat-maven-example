@@ -42,7 +42,7 @@ pipeline {
                         pwd
                         hostnamectl
                         ls -ltr /site
-                        cp -r . /site/
+                        sudo cp -r . /site/
                         ls -ltrh
                         sudo cp tomcat-apache.service /etc/systemd/system/
                         sudo systemctl daemon-reload
