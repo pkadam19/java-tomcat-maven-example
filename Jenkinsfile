@@ -39,8 +39,12 @@ pipeline {
                     sh '''
                         whoami
                         pwd
+                        hostnamectl
+                        ifconfig
+                        cd /site
                         ls -ltr
                         sudo cp -r . /site/
+                        ls -ltrh
                         sudo cp tomcat-apache.service /etc/systemd/system/
                         sudo systemctl daemon-reload
                         sudo systemctl enable tomcat-apache.service
