@@ -34,14 +34,12 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no afour@192.168.16.217'
                     sh 'ssh -v afour@192.168.16.217'
                     sh '''
-                        cd /site/
-                        touch test.txt
-                        // cp -r . /site/
-                        // java -jar /site/target/dependency/webapp-runner.jar /site/target/*.war
-                        // sudo cp tomcat-apache.service /etc/systemd/system/
-                        // sudo systemctl daemon-reload
-                        // sudo systemctl enable tomcat.service
-                        // sudo systemctl start tomcat.service
+                        cp -r . /site/
+                        java -jar /site/target/dependency/webapp-runner.jar /site/target/*.war
+                        sudo cp tomcat-apache.service /etc/systemd/system/
+                        sudo systemctl daemon-reload
+                        sudo systemctl enable tomcat.service
+                        sudo systemctl start tomcat.service
                     ''' 
                 }
             }
