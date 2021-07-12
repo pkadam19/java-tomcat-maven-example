@@ -36,7 +36,7 @@ pipeline {
                     sh '''
                         whoami
                         pwd
-                        sudo cp -r . /site
+                        // sudo cp -r . /site
                         // java -jar /site/target/dependency/webapp-runner.jar /site/target/*.war
                         sudo cp tomcat-apache.service /etc/systemd/system/
                         sudo systemctl daemon-reload
