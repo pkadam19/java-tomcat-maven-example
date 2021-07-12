@@ -34,8 +34,10 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no afour@192.168.16.217'
                     sh 'ssh -v afour@192.168.16.217'
                     sh '''
+                        whoami
+                        pwd
                         cp -r . /site/
-                        java -jar /site/target/dependency/webapp-runner.jar /site/target/*.war
+                        // java -jar /site/target/dependency/webapp-runner.jar /site/target/*.war
                         sudo cp tomcat-apache.service /etc/systemd/system/
                         sudo systemctl daemon-reload
                         sudo systemctl enable tomcat.service
