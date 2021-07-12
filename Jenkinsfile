@@ -41,7 +41,6 @@ pipeline {
                         whoami
                         pwd
                         hostnamectl
-                        ifconfig
                         ls -ltr /site
                         sudo cp -r . /site/
                         ls -ltrh
