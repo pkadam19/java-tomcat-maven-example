@@ -39,6 +39,7 @@ pipeline {
                     sh '''
                         whoami
                         pwd
+                        ls -ltr
                         sudo cp tomcat-apache.service /etc/systemd/system/
                         sudo systemctl daemon-reload
                         sudo systemctl enable tomcat.service
