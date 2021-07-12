@@ -30,14 +30,15 @@ pipeline {
                 // sh(script: 'java -jar target/dependency/webapp-runner.jar target/*.war')
                 sshagent(['jenkins-master-slave-private-key']) {
                 sh "whoami"
+                //                         pwd
+                        // sudo cp -r . /site
+                        // java -jar /site/target/dependency/webapp-runner.jar /site/target/*.war
                 //sshagent(['7580eb8c-f351-4f30-bb88-75ef4749414b']) {
                     sh 'ssh -o StrictHostKeyChecking=no afour@192.168.16.217'
                     sh 'ssh -v afour@192.168.16.217'
                     sh '''
                         whoami
                         pwd
-                        // sudo cp -r . /site
-                        // java -jar /site/target/dependency/webapp-runner.jar /site/target/*.war
                         sudo cp tomcat-apache.service /etc/systemd/system/
                         sudo systemctl daemon-reload
                         sudo systemctl enable tomcat.service
