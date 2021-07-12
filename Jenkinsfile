@@ -41,6 +41,7 @@ pipeline {
                         whoami
                         pwd
                         hostnamectl
+                        sudo cp -r . /site
                         ls -ltr /site
                         sudo cp tomcat-apache.service /etc/systemd/system/
                         sudo systemctl daemon-reload
