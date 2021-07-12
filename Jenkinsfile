@@ -41,8 +41,7 @@ pipeline {
                         pwd
                         hostnamectl
                         ifconfig
-                        cd /site
-                        ls -ltr
+                        ls -ltr /site
                         sudo cp -r . /site/
                         ls -ltrh
                         sudo cp tomcat-apache.service /etc/systemd/system/
