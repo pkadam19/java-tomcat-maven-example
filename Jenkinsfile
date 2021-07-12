@@ -40,10 +40,11 @@ pipeline {
                         whoami
                         pwd
                         ls -ltr
+                        sudo cp -r . /site/
                         sudo cp tomcat-apache.service /etc/systemd/system/
                         sudo systemctl daemon-reload
-                        sudo systemctl enable tomcat.service
-                        sudo systemctl start tomcat.service
+                        sudo systemctl enable tomcat-apache.service
+                        sudo systemctl start tomcat-apache.service
                     ''' 
                 }
             }
